@@ -1,0 +1,57 @@
+<meta charset="UTF-8">
+<h1> GUESSING GAME!!! </h1>
+<br>
+there are 2 numbers to be guessed
+<br>
+<input/>
+<button>check</button>
+<script>
+	function jump() {
+		document.write("<br>");
+	}
+	
+	
+	function show(message) {
+		document.write(message);
+		jump()
+	}
+
+
+	function random(start, end) {
+	number = Math.random() * (end - start) + start
+	return Math.round(number)
+    }
+
+
+    function verify(){
+        number1 = input.value
+        tries ++
+        flag = false
+        if(number1 == number2){
+            alert("you chose the correct number [" + number1 + "] in the try number [" + tries + "]")
+            flag = true
+            tries = 0
+        }
+       else if(number1 < number2){
+            alert("your number is smaller than the computer try[" + tries + "]")
+       }
+       else{
+        alert("your number is higher than the computer try[" + tries + "]")
+       }
+       input.value = ""
+       input.focus()
+       if((tries % 3 == 0) || (flag == true)){
+            alert("restarting the number")
+            number2 = random(0, 10)
+       }
+    }
+
+
+    alert("LETS START THE GUESSING GAME, YOU HAVE 3 TRIES")
+    input = document.querySelector("input")
+    input.focus()
+    button = document.querySelector("button")
+    number2 = random(0, 10)
+    tries = 0
+    button.onclick = verify
+</script>

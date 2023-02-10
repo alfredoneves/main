@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+            <meta charset="UTF-8">
+            <title>guessing game</title>
+</head>
+<h1>GUESSING GAME</h1>
+<br>
+<input/>
+<button>check</button>
+</html>
+<script>
+            function jump() {
+	document.write("<br>");
+            }
+
+
+            function show(message) {
+	            document.write(message);
+            }
+
+
+            function random(start, end) {
+	            number = Math.random() * (end - start) + start
+	            return Math.round(number)
+            }
+
+
+            function verify(){
+                        number1 = input.value
+                        number2 = []
+                        while(number2.length < array_size){
+                                    n1 = random(1, 10)
+                                    unique_push(number2, n1)
+                        }
+                        flag1 = false
+                        for(pos = 0; pos < number2.length; pos ++){
+                                    if(number1 == number2[pos]){
+                                                alert("you chose correctly between the numbers " + number2)
+                                                flag1 = true
+                                    }
+                        }
+                        if(flag1 == false){
+                                    alert("you didn't choose correctly between the numbers " + number2)
+                        }
+                        input.value = ""
+                        input.focus()
+            }
+
+            function unique_push(array1, item1){
+	            flag = false
+	            for(pos = 0; pos < array1.length; pos ++){
+		            if(item1 == array1[pos]){
+			            flag = true
+		            }
+	            }
+	            if(flag == false){
+		            array1.push(item1)
+	            }
+            }
+            array_size = 3
+            show("there are " + array_size + " numbers to be guessed")
+            input = document.querySelector("input")
+            input.focus()
+            button = document.querySelector("button")
+            button.onclick = verify
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<canvas width="600" height="400"></canvas>
+<br>
+Chose a color <input type="color">
+<script>
+            function make_circle(event){
+                        if (flag){
+                                    x = event.pageX - screen.offsetLeft
+                                    y = event.pageY - screen.offsetTop
+                                    radium = 10
+                                    brush.beginPath()
+                                    brush.fillStyle = input1.value
+                                    brush.moveTo(x, y)
+                                    brush.arc(x, y, radium, 0, 2 * 3.14)
+                                    brush.fill()
+                        }
+            }
+
+
+            function make_circle2(event) {
+                        x = event.pageX - screen.offsetLeft
+                        y = event.pageY - screen.offsetTop
+                        radium = 10
+                        brush.beginPath()
+                        brush.fillStyle = input1.value
+                        brush.moveTo(x, y)
+                        brush.arc(x, y, radium, 0, 2 * 3.14)
+                        brush.fill()
+            }
+
+
+            function flag_true(){
+                        flag = true
+            }
+
+
+            function flag_false(){
+                        flag = false
+            }
+
+
+            // prepares the canvas
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.fillStyle = "black"
+            brush.fillRect(0, 0, 600, 400)
+            // receives the input
+            input1 = document.querySelector("input")
+            // executes the draw
+            flag = false
+            screen.onmousedown = flag_true
+            screen.onmousemove = make_circle
+            screen.onmouseup = flag_false
+            screen.onclick = make_circle2
+</script>

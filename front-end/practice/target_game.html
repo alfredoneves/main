@@ -1,0 +1,60 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+            function make_circle(x, y, radium, color){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        brush.beginPath()
+                        brush.fillStyle = color
+                        brush.moveTo(x, y)
+                        brush.arc(x, y, radium, 0, 2 * Math.PI)
+                        brush.fill()
+            }
+
+            function random_target(x, y, radium){
+                        clear_screen(600, 400, color0)
+                        random_x = random(0, 600)
+                        random_y = random(0, 400)
+                        // big circle
+                        make_circle(random_x, random_y, radium1 + 20, color1)
+                        // medium circle
+                        make_circle(random_x, random_y, radium1 + 10, color2)
+                        // small circle
+                        make_circle(random_x, random_y, radium1, color1)
+            }
+
+            function random(start, end) {
+	            number = Math.random() * (end - start) + start
+	            return Math.round(number)
+            }
+
+            function clear_screen(x, y, color) {
+                        brush.fillStyle = color
+                        brush.fillRect(0, 0, x, y)
+            }
+
+            function check_target(event) {
+                        var_x = event.pageX - screen.offsetLeft;
+                        var_y = event.pageY - screen.offsetTop;
+                        // check
+                        if (var_x >= random_x - radium1 && var_x <= random_x + radium1 && var_y >= random_y - radium1 && var_y <= random_y + radium1){
+                        alert("you shoot the center")
+                        }
+            }
+
+            // variables
+            var random_x
+            var random_y
+            color0 = "black"
+            color1 = "red"
+            color2 = "white"
+            radium1 = 10
+            // prepares canvas
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.fillStyle = color0
+            brush.fillRect(0, 0, 600, 400)
+            // starts functions
+            setInterval(random_target, 3000)
+            screen.onclick = check_target
+</script>

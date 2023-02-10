@@ -1,0 +1,27 @@
+<canvas width="600" height="600"></canvas>
+<script>
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            // black rectangle
+            brush.fillStyle = "black"
+            brush.fillRect(0, 0, 600, 600)
+            // red circle
+            brush.fillStyle = "red"
+            brush.beginPath()
+            brush.arc(300, 300, 50, 0, 2 * 3.14)
+            brush.fill()
+            // darkred triangle
+            brush.fillStyle = "darkred"
+            brush.beginPath()
+            brush.moveTo(300, 300)
+            brush.lineTo(0, 600)
+            brush.lineTo(600, 600)
+            brush.fill()
+            // pyramid line
+            brush.fillStyle = "red"
+            brush.beginPath()
+            brush.moveTo(300, 300)
+            brush.lineTo(450, 600)
+            brush.lineTo(600, 600)
+            brush.fill()
+</script>

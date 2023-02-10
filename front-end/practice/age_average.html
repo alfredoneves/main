@@ -1,0 +1,12 @@
+<meta charset="UTF-8">
+<h1>AVERAGE AGE CALCULATOR</h1>
+<script>
+    fam_num = parseInt(prompt("how many people do you want to include in the calculus ?"))
+    total = 0
+    for(counter = 1; counter <= fam_num; counter++){
+        age = parseInt(prompt("type the age of the familiar " + counter + ")"))
+        total += age
+    }
+    average = total / fam_num
+    document.write("the average of the given ages is: " + average + " years")
+</script>

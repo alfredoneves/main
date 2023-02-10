@@ -1,0 +1,41 @@
+<canvas width="600" height="600"></canvas>
+<script>
+            function make_triangle(xa, ya, xc, yc, color){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        brush.fillStyle = color
+                        brush.beginPath()
+                        brush.moveTo(xa, ya)
+                        brush.lineTo(xa, yc)
+                        brush.lineTo(xc, yc)
+                        brush.fill()
+            }
+
+
+            function draw_text(x, y, text, color1){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        brush.font = "15px Georgia"
+                        brush.fillStyle = color1
+                        brush.fillText(text, x, y)
+            }
+
+            function make_triangle2(xa, ya, xc, yc, color){
+                        make_triangle(xa, ya, xc, yc, color)
+                        // coordinates a, b, c
+                        draw_text(xa, ya, "(" + xa + ", " + ya + ")")
+                        draw_text(xa - 10, yc + 20, "(" + xa + ", " + yc + ")")
+                        draw_text(xc, yc, "(" + xc + ", " + yc + ")")
+            }
+
+            xa = 50
+            ya = 50
+            xc = 400
+            yc = 400
+            color = "black"
+            function make_2triangles(xa, ya, xc, yc, color){
+                        make_triangle2(xa, ya, xc, yc, color)
+                        make_triangle2((6*xa + xc)/7, (9*ya + 5*yc)/14, (5*xa + 9*xc)/14, (ya + 6*yc)/7, "white")
+            }
+            make_2triangles(xa, ya, xc, yc, color)
+</script>

@@ -1,0 +1,36 @@
+.titulo-principal {padding-left : 10px;
+                                    font-size: 20px;
+                                    background: #BBBBBB}
+
+.titulo-centralizado {text-align : center}
+
+/* title and paragraphs aligned in the center */
+.principal {text-align : center; padding : 30px;
+                      background : #CCCCCC}
+
+/* image occupying 100% of the width*/
+#banner {width : 100%}
+
+#mission {font-size : 20px}
+
+em strong {color : red}
+
+.beneficios {background : #FFFFFF; padding : 20px}
+
+ul {display : inline-block;
+       vertical-align : top;
+       width : 20%;
+       margin-right : 15%;}
+
+.items {font-style : italic}
+
+.imgbeneficios {width : 50%}
+
+footer {text-align: center;
+                 background: url("/home/alfredo/Downloads/bg.jpg");
+                 padding: 40px 0;}
+
+.copyright {font-size: 13px;
+                        color: #FFFFFF;
+                        font-size: 13px;
+                        margin: 20px 0 0;}

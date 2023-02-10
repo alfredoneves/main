@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<canvas width="600" height="400"></canvas>
+<script>
+            function make_circle(x, y, radium, color1){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        brush.beginPath()
+                        brush.fillStyle = color1
+                        brush.moveTo(x, y)
+                        brush.arc(x, y, radium, 0, 2 * Math.PI)
+                        brush.fill()
+            }
+
+            function keyboard(event) {
+                        if (event.keyCode == 38){
+                                    y--
+                        }
+                        else if (event.keyCode == 40){
+                                    y++
+                        }
+                        else if (event.keyCode == 39) {
+                                    x++
+                        }
+                        else if (event.keyCode == 37) {
+                                    x--
+                        }
+            }
+
+            function clear_screen(x, y, color) {
+                        brush.fillStyle = color
+                        brush.fillRect(0, 0, x, y)
+            }
+
+            function update_screen(){
+                        clear_screen(600, 400, color0)
+                        make_circle(x, y,radium, color1)
+            }
+
+            top = 38
+            bottom = 40
+            right = 39
+            left = 37
+            rate = 10
+            x =  50
+            y = 50
+            color0 = "black"
+            color1 = "red"
+            radium = 10
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.fillStyle = color0
+            brush.fillRect(0, 0, 600, 400)
+            document.onkeydown = keyboard
+            setInterval(update_screen, rate)
+</script>

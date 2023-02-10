@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<canvas width="600" height="400"></canvas>
+<script>
+          function make_rectangle(x, y, width, height, rcolor, bcolor){
+            // this program creates a rectangle with a border
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.fillStyle = rcolor
+            brush.fillRect(x, y, width, height)
+            brush.strokeStyle = bcolor
+            brush.strokeRect(x, y, width, height)
+  }
+          for(y = 0; y < 400; y += 100){
+            for(x = 0; x < 600; x += 100){
+            make_rectangle(x, y, 100, 100, "black", "red")
+            }
+          }
+</script>

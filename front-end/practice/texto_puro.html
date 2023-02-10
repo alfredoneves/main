@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+
+<script>
+	function jump() {
+		document.write("<br>");
+	}
+	
+	
+	function show(message) {
+		document.write(message);
+	}
+	
+	
+	points_2021 = 28
+	victories = parseInt(prompt("how many times your team has won this year?"))
+	draws = parseInt(prompt("how many times your team tied this year?"))
+	points_2022 = victories * 3 + draws
+	show("last year your team made " + points_2021 + " points")
+	jump()
+	if(points_2022 < points_2021) {
+		show("your team is worse than last year, with " + points_2022 + " points")
+	}
+	if(points_2022 == points_2021) {
+		show("your team is equal the last year, with " + points_2022 + " points")
+	}
+	if(points_2022 > points_2021) {
+		show("your team is better than last year, with " + points_2022 + " points")
+	}
+</script>
+

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<canvas width="600" height="400"></canvas>
+<script>
+            function make_circle(x, y, radium, color){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        brush.beginPath()
+                        brush.fillStyle = color
+                        brush.moveTo(x, y)
+                        brush.arc(x, y, radium, 0, 2 * 3.14)
+                        brush.fill()
+            }
+
+
+            function make_flower(x, y, i, e){
+                        make_circle(x, y, 20, i)
+                        make_circle(x, y + 40, 20, e)
+                        make_circle(x + 40, y, 20, e)
+                        make_circle(x, y - 40, 20, e)
+                        make_circle(x - 40, y, 20, e)
+            }
+
+
+            make_flower(300, 200, "black", "red")
+</script>

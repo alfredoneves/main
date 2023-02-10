@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<h1>What is the fraction in the image?</h1>
+<canvas width="600" height="400"></canvas>
+<script>
+            function fraction(x, y, size, color){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        for(j = 0; j < x; j++){
+                                    brush.fillStyle = color
+                                    brush.fillRect(0 + (j * size), 0, size, size)
+                        }
+                        brush.strokeStyle = "black"
+                        for(i = 0; i < y; i++){
+                                    brush.strokeRect(0 + (i * size), 0, size, size)
+                                    }
+            }
+
+
+            fraction(3, 4, 50, "red")
+</script>

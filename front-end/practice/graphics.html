@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+<h1> BROWSER GRAPHICS</h1>
+<br>
+<canvas width="600" height="400"></canvas>
+<script>
+            function draw_text(x, y, text, color1){
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.font = "15px Georgia"
+            brush.fillStyle = color1
+            brush.fillText(text, x, y)
+            }
+
+
+            function make_rectangle(x, y, width, height, rcolor, bcolor){
+            // this program creates a rectangle with a border
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.fillStyle = rcolor
+            brush.fillRect(x, y, width, height)
+            brush.strokeStyle = bcolor
+            brush.strokeRect(x, y, width, height)
+            }
+
+
+
+            function draw_bar(x, y, graphic, colors, name){
+                        size = graphic.length
+                        for(i = 0; i < size; i ++){
+                                    make_rectangle(x, y, 50, graphic[i], colors[i], "black")
+                                    y += graphic[i]
+                        }
+                        draw_text(x, y + 20, name, "white")
+            }
+
+
+            graphic_2015 = [50, 25, 20, 5]
+            graphic_2016 = [65, 20, 13, 2]
+            colors = [ "blue", "green", "yellow", "red" ]
+            draw_bar(50, 50, graphic_2015, colors, "2015")
+            draw_bar(150, 50, graphic_2016, colors, "2016")
+</script>

@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+<h1>WORLD CUP HISTORY</h1>
+<script>
+    function jump() {
+        document.write("<br>");
+    }
+
+
+    function show(message) {
+	    document.write(message);
+    }
+
+
+    first_year = 1930
+    end_year = parseInt(prompt("chose a year to see how many world cups happened until it"))
+    while(first_year <= end_year){
+        show("there was a world cup in " + first_year)
+        jump()
+        first_year += 4
+    }
+</script>

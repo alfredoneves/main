@@ -1,0 +1,25 @@
+<meta charset="UTF-8">
+<script>
+            function unique_push(array1, item1){
+	            flag = false
+	            for(pos = 0; pos < array1.length; pos ++){
+		            if(item1 == array1[pos]){
+			            flag = true
+		            }
+	            }
+	            if(flag == false){
+		            array1.push(item1)
+	            }
+            }
+
+
+            ingredients = []
+            ingredient = ""
+            while(ingredient != "q"){
+                        ingredient = prompt("type the name of the ingredient you want to add to the list ( type 'q' to stop)")
+                        if(ingredient != "q"){
+                                    unique_push(ingredients, ingredient)
+                        }
+            }
+            document.write(ingredients)
+</script>

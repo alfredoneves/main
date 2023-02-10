@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<canvas width="600" height="400"></canvas>
+<script>
+            function make_circle(x, y, radium, color){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        brush.beginPath()
+                        brush.fillStyle = color
+                        brush.moveTo(x, y)
+                        brush.arc(x, y, radium, 0, 2 * 3.14)
+                        brush.fill()
+            }
+
+
+            function click_circle(event){
+                        console.log(event)
+                        axis_x = event.pageX - screen.offsetLeft
+                        axis_y = event.pageY - screen.offsetTop
+                        if (event.shiftKey && radium1 <=30){
+                                    radium1 += 10
+                        }
+                        if (event.ctrlKey && radium1 >= 15){
+                                    radium1 -= 5
+                        }
+                        make_circle(axis_x, axis_y, radium1, colors[pos_colors])
+                        alert(radium1)
+            }
+
+
+            function change_color(){
+                        if (pos_colors < 2){
+                                    pos_colors += 1
+                        }
+                        else {
+                                    pos_colors = 0
+                        }
+                        return false // do not show the menu bar
+            }
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.fillStyle = "black"
+            brush.fillRect(0, 0, 600, 400)
+            colors = ["blue", "red", "green"]
+            pos_colors = 0
+            radium1 = 10
+            screen.onclick = click_circle
+            screen.oncontextmenu = change_color
+</script>

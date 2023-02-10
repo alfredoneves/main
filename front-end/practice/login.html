@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+<script>
+    username = "alfredo"
+    password = "alfredo123"
+    counter = 0
+    flag = false
+    while(counter < 3 && flag == false){
+        username1 = prompt("type your username")
+        password1 = prompt("type your password")
+        if(username1 == username && password1 == password){
+            flag = true
+            alert("successful login")
+            document.write("<h1>WELCOME</h1>")
+        }
+        else{
+        alert("error to login")
+        counter += 1
+        }
+    }
+</script>

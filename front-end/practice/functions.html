@@ -1,0 +1,115 @@
+function jump() {
+	document.write("<br>");
+}
+	
+	
+function show(message) {
+	document.write(message);
+}
+	
+	
+function imc(weight, height) {
+	imc = weight / height ** 2;
+return imc;
+}
+
+
+function random(start, end) {
+	number = Math.random() * (end - start) + start
+	return Math.round(number)
+}
+
+
+function unique_push(array1, item1){
+	flag = false
+	for(pos = 0; pos < array1.length; pos ++){
+		if(item1 == array1[pos]){
+			flag = true
+		}
+	}
+	if(flag == false){
+		array1.push(item1)
+	}
+}
+
+
+function make_rectangle(x, y, width, height, rcolor, bcolor){
+            // this program creates a rectangle with a border
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.fillStyle = rcolor
+            brush.fillRect(x, y, width, height)
+            brush.strokeStyle = bcolor
+            brush.strokeRect(x, y, width, height)
+  }
+
+
+function make_circle(x, y, radium, color){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        brush.beginPath()
+                        brush.fillStyle = color
+                        brush.moveTo(x, y)
+                        brush.arc(x, y, radium, 0, 2 * Math.PI)
+                        brush.fill()
+            }
+
+
+            function make_flower(x, y, i, e){
+                        make_circle(x, y, 20, i)
+                        make_circle(x, y + 40, 20, e)
+                        make_circle(x + 40, y, 20, e)
+                        make_circle(x, y - 40, 20, e)
+                        make_circle(x - 40, y, 20, e)
+            }
+
+
+function draw_text(x, y, text, color1){
+            screen = document.querySelector("canvas")
+            brush = screen.getContext("2d")
+            brush.font = "15px Georgia"
+            brush.fillStyle = color1
+            brush.fillText(text, x, y)
+            }
+
+
+function draw_bar(x, y, graphic, colors, name){
+            size = graphic.length
+            for(i = 0; i < size; i ++){
+                        make_rectangle(x, y, 50, graphic[i], colors[i], "black")
+                        y += graphic[i]
+            }
+            draw_text(x, y + 20, name, "white")
+}
+
+
+function make_triangle(xa, ya, xc, yc, color){
+                        screen = document.querySelector("canvas")
+                        brush = screen.getContext("2d")
+                        brush.fillStyle = color
+                        brush.beginPath()
+                        brush.moveTo(xa, ya)
+                        brush.lineTo(xa, yc)
+                        brush.lineTo(xc, yc)
+                        brush.fill()
+            }
+
+
+function make_triangle2(xa, ya, xc, yc, color){
+                        make_triangle(xa, ya, xc, yc, color)
+                        // coordinates a, b, c
+                        draw_text(xa, ya, "(" + xa + ", " + ya + ")")
+                        draw_text(xa - 10, yc + 20, "(" + xa + ", " + yc + ")")
+                        draw_text(xc, yc, "(" + xc + ", " + yc + ")")
+            }
+
+
+function make_2triangles(xa, ya, xc, yc, color){
+                        make_triangle2(xa, ya, xc, yc, color)
+                        make_triangle2((6*xa + xc)/7, (9*ya + 5*yc)/14, (5*xa + 9*xc)/14, (ya + 6*yc)/7, "white")
+}
+
+function clear_screen(x, y, color) {
+                        brush.fillStyle = color
+                        brush.fillRect(0, 0, x, y)
+            }

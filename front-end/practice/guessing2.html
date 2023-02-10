@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<h1>password</h1>
+<input/>
+<button>verify</button>
+<script>
+    function verify(){
+        if(input.value == "alfredo"){
+            document.write("<br>access allowed")
+        }
+       else{
+        document.write("access denied")
+       }
+    }
+     input = document.querySelector("input")
+     input.focus()
+     button = document.querySelector("button")
+     button.onclick = verify
+</script>
+
