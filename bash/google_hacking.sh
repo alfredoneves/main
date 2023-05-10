@@ -2,6 +2,7 @@
 
 target=$1
 echo "STARTING GOOGLE HACKING!"
+echo "TARGET:$target"
 
 #subdomains
 firefox https://www.google.com/search?q=site%3A*$target+-www
@@ -34,37 +35,24 @@ firefox https://www.google.com/search?q=site%3A$target+intext%3A"admin"
 firefox https://www.google.com/search?q=site%3A$target+intext%3A"administrator"
 firefox https://www.google.com/search?q=site%3A$target+intext%3A"shell"
 firefox https://www.google.com/search?q=site%3A$target+intext%3A"/webdynpro/resources/sap.com/"
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"log"
 firefox https://www.google.com/search?q=site%3A$target+intext%3A"@"
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"backup"
 
 # inurl
 firefox https://www.google.com/search?q=site%3A$target+inurl%3A"/etc"
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"wp-config.php"
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"log"
 firefox https://www.google.com/search?q=site%3A$target+inurl%3A"admin"
 firefox https://www.google.com/search?q=site%3A$target+inurl%3A"SUID"
 firefox https://www.google.com/search?q=site%3A$target+inurl%3A"root"
 firefox https://www.google.com/search?q=site%3A$target+inurl%3A"hack"
 firefox https://www.google.com/search?q=site%3A$target+inurl%3A"ftp"
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"smb"
 firefox https://www.google.com/search?q=site%3A$target+inurl%3A"key"
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"/wp-content"
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"ovpn"
 
 # external
 firefox https://www.google.com/search?q=site%3Apastebin.com+intext%3A$target
 firefox https://www.google.com/search?q=site%3Atrello.com+intext%3A$target
-https://www.google.com/search?q=site%3Agithub.com+intext%3A$target
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+firefox https://www.google.com/search?q=site%3Agithub.com+intext%3A$target
