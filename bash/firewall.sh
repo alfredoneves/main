@@ -16,6 +16,9 @@ iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 iptables -A INPUT -p tcp --dport 3306 -j ACCEPT
 
+# router
+iptables -A INPUT -s 192.168.0.1 -j ACCEPT
+
 # block other ports (remember that the firewall reads the lines in sequence)
 iptables -P INPUT DROP	# configures the policy to drop packets
 # iptables -A INPUT -p tcp --syn -j DROP can drop hosts that try to connect in other ports
