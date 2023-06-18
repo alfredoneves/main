@@ -17,7 +17,7 @@ chatbot = ChatBot("my_bot", tagger_language=ENGSM)
 conversation = ["Hi", "Hey, what's up?", "I'm ok", "Cool!", "What are you studying?", "python", "I'm sleepy", "Coffe time!"]
 
 trainer = ListTrainer(chatbot)	# selects the bot
-trainer.train(conversation)	# train the bot using the conversation
+trainer.train(conversation)	# trains the bot using the conversation
 system("clear")	# removes the output from download
 
 while True:
