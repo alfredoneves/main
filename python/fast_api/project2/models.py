@@ -38,7 +38,7 @@ class Tokens(Base):
 	__tablename__ = "Tokens"
 	id = Column(Integer, primary_key=True)
 	id_person = Column(Integer, ForeignKey("Person.id"))
-	token = Column(String(100))
+	token = Column(String(100))	# the token must have 100 characters (2 hex = 1 byte)
 	data = Column(DateTime, default=datetime.datetime.utcnow())
 	
 	
