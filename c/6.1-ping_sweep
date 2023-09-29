@@ -1,0 +1,29 @@
+// this program pings every host in the network to check if it's up
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]){
+	int i;
+	char command[43];
+	
+	// get the network
+	if(argc != 2){
+	
+		printf("Usage: ./ping_sweep network_address\n");
+		printf("Example: ./ping_sweep 192.168.0\n");
+		
+	} else {	// execute ping in each host
+	
+		for(i=1;i<255;i++){
+			
+			// concatenate strings and args to make the command
+			snprintf(command, sizeof(command), "ping -W 0.5 -c1 %s.%d | grep 64", argv[1], i);
+			printf(command);
+			system(command);
+			
+		}
+	
+	}
+	
+	return 0;
+}

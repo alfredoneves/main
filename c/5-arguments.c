@@ -1,11 +1,15 @@
 #include <stdio.h>
 
-int main(int argc, char *argv[]){	// permits the use of arguments
-	if(argc<2){
-		printf("you need to give 2 arguments\n");
-		printf("example: ./arguments [ip] [port]\n");
-	}else{
-		printf("scanning host %s in port %s\n",argv[1], argv[2]);
-		return 0;
-	}
+int main(int argc, char *argv[]){       // used instead of void to work with arguments
+
+        if(argc != 3){
+
+                printf("Usage: ./arguments IP port\n");
+
+        } else {
+
+                printf("Scanning host %s in port %s\n", argv[1], argv[2]);
+                return 0;
+
+        }
 }
