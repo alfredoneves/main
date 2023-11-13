@@ -1,0 +1,96 @@
+PageLayoutExample:
+
+<PageLayoutExample@PageLayout>:
+    MainWidget:
+    BoxLayoutExample:
+    AnchorLayoutExample:
+    GridLayoutExample:
+
+
+<ScrollViewExample@ScrollView>:
+    StackLayoutExample:
+        size_hint: 1, None  # defines width 100% and doesn't define height
+        height: self.minimum_height # controls the height from StackLayout to match the height of ScrollView
+
+<StackLayoutExample>:
+    # left-right top-bottom
+    orientation: "rl-tb"
+    padding: ("20dp", "20dp", "20dp", "20dp")   # controls internal space
+    Button:
+        text: "A"
+        size_hint: .2, .2
+    Button:
+        text: "B"
+        size_hint: .2, .2
+    Button:
+        text: "C"
+        size_hint: .2, .2
+    Button:
+        text: "D"
+        size_hint: .2, .2
+    Button:
+        text: "E"
+        size_hint: .2, .2
+    Button:
+        text: "F"
+        size_hint: .2, .2
+
+
+<GridLayoutExample>:
+    cols: 3
+    BoxLayoutExample:
+    Button:
+        text: "B"
+    Button:
+        text: "C"
+    Button:
+        text: "D"
+    Button:
+        text: "F"
+    Button:
+        text: "G"
+
+
+<AnchorLayoutExample>:
+    # right, left, center
+    anchor_x: "left"
+    # top, bottom, center
+    anchor_y: "top"
+    BoxLayout:
+        size_hint: .2, .2
+        Button:
+            text: "A"
+        Button:
+            text: "B"
+
+<BoxLayoutExample>:
+    orientation: "horizontal"
+    BoxLayout:
+        spacing: "5dp"  # controls the spacing between the buttons
+        orientation: "vertical"
+        Button:
+            text: "b1"
+        Button:
+            text: "b2"
+        Button:
+            text: "b3"
+        Button:
+            text: "b4"
+    Button:
+        text: "A"
+        size_hint: 0.5, 0.5
+        pos_hint: {"x": .5}
+    Button:
+        text: "B"
+        #size: "40dp", "40dp"
+
+
+<MainWidget>:
+    Button:
+        text: "click"
+        size: "40dp", "40dp"
+        pos: 100, 200
+    Label:
+        text: "Hello World!"
+        color: 1, 0, 0, 1
+        size: "40dp", "40dp"
