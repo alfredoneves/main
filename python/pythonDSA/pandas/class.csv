@@ -1,0 +1,6 @@
+Name,Age,Average,Discount,Percentage
+Alfredo,22,8,True,30
+Robert,40,9,True,40
+Lisbeth,30,6,False,0
+Alucard,29,3,True,10
+Rick,80,10,True,90
