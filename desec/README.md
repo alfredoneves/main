@@ -4,3 +4,5 @@ O objetivo desse repositório é tirar o máximo proveito dos cursos da Desec po
 Posts:
 
 1) Introdução à segurança da informação: https://medium.com/@alfredoncdossantos/introdu%C3%A7%C3%A3o-%C3%A0-seguran%C3%A7a-da-informa%C3%A7%C3%A3o-ad3f67297a60
+
+2) Introdução ao penetration testing: https://medium.com/@alfredoncdossantos/introdu%C3%A7%C3%A3o-ao-penetration-testing-49de2b97e4cd
