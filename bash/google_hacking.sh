@@ -1,58 +1,72 @@
 #!/bin/bash
 
 target=$1
+if [ "$1" == "" ]; then
+	echo "Usage: ./google_hacking.sh domain_name"
+	echo "EXP: ./google_hacking.sh google.com"
+	echo "Close firefox before starting the script to avoid oppening all the tabs at once"
+	exit
+fi
+
 echo "STARTING GOOGLE HACKING!"
 echo "TARGET:$target"
 
-#subdomains
-firefox https://www.google.com/search?q=site%3A*$target+-www
+echo "Searching for subdomains"
+firefox https://www.google.com/search?q=site%3A*$target+-www 2>/dev/null
 
-# filetype
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Apdf
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Atxt
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Asql
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Axls
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Axlsx
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Abkp
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Abackup
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Aold
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Abak
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Axml
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Aasp
-firefox https://www.google.com/search?q=site%3A$target+filetype%3Acsv
+echo "Searching per filetype"
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Apdf 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Atxt 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Asql 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Axls 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Axlsx 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Abkp 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Abackup 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Aold 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Abak 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Axml 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Aasp 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+filetype%3Acsv 2>/dev/null
 
-# intitle
-firefox https://www.google.com/search?q=site%3A$target+intitle%3Awelcome
-firefox https://www.google.com/search?q=site%3A$target+intitle%3A"NETSurveillance WEB"
-firefox https://www.google.com/search?q=site%3A$target+intitle%3Anetwork
-firefox https://www.google.com/search?q=site%3A$target+intitle%3Apasswd
-firefox https://www.google.com/search?q=site%3A$target+intitle%3A"NETSurveillance WEB"
+echo "Intitle"
+firefox https://www.google.com/search?q=site%3A$target+intitle%3Awelcome 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intitle%3A"NETSurveillance WEB" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intitle%3Anetwork 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intitle%3Apasswd 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intitle%3A"NETSurveillance WEB" 2>/dev/null
 
-# intext
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"index of"
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"password"
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"admin"
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"administrator"
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"shell"
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"/webdynpro/resources/sap.com/"
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"@"
-firefox https://www.google.com/search?q=site%3A$target+intext%3A"backup"
+echo "Intext for juicy words"
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"syntax near" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"index of" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"password" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"admin" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"administrator" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"shell" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"/webdynpro/resources/sap.com/" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"@" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"backup" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+intext%3A"error" 2>/dev/null
 
-# inurl
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"/etc"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"wp-config.php"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"log"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"admin"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"SUID"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"root"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"hack"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"ftp"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"smb"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"key"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"/wp-content"
-firefox https://www.google.com/search?q=site%3A$target+inurl%3A"ovpn"
+echo "Inurl for files, configs and services"
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"/etc" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"wp-config.php" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"log" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"admin" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"SUID" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"root" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"hack" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"ftp" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"smb" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"key" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"/wp-content" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"/wp-includes" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"ovpn" 2>/dev/null
 
-# external
-firefox https://www.google.com/search?q=site%3Apastebin.com+intext%3A$target
-firefox https://www.google.com/search?q=site%3Atrello.com+intext%3A$target
-firefox https://www.google.com/search?q=site%3Agithub.com+intext%3A$target
+echo "Searching for parameters in url"
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"id=" 2>/dev/null
+firefox https://www.google.com/search?q=site%3A$target+inurl%3A"s=" 2>/dev/null
+
+echo "searching in pastebin, trello and github"
+firefox https://www.google.com/search?q=site%3Apastebin.com+intext%3A$target 2>/dev/null
+firefox https://www.google.com/search?q=site%3Atrello.com+intext%3A$target 2>/dev/null
+firefox https://www.google.com/search?q=site%3Agithub.com+intext%3A$target 2>/dev/null
