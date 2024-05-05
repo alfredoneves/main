@@ -1,0 +1,18 @@
+Linux tools:
+whois
+dnsrecon
+dnsenum
+subfinder
+gospider
+nikto
+gobuster
+
+Python libraries:
+queue
+subprocess
+sys
+requests
+threading
+pyfiglet
+dns.resolver
+bs4
