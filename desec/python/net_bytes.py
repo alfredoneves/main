@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-some_bytes = """d4 ab 82 45 c4 0c 00 0c 29 76 43 e1 08 00 45 00
+some_bytes1 = """d4 ab 82 45 c4 0c 00 0c 29 76 43 e1 08 00 45 00
 02 37 2c c0 40 00 40 06 77 32 c0 a8 00 0a 25 3b
 ae e1 a9 fe 00 50 ff 4d 66 60 dd cb e4 96 80 18
 00 e5 96 f8 00 00 01 01 08 0a f7 cb 2f 62 41 1c
@@ -38,6 +38,7 @@ ae e1 a9 fe 00 50 ff 4d 66 60 dd cb e4 96 80 18
 65 26 70 61 73 73 77 6f 72 64 3d 4a 25 32 35 31
 33 34 35 6b 39"""
     
+some_bytes = "d4 ab 82 45 c4 0c 00 0c 29 76 43 e1 08 00 45 00 00 4c d1 b4 00 00 40 01 4e a3 ac 10 01 37 ac 10 01 02 08 00 dc 3a 83 08 00 00 64 73 74 20 68 74 74 70 20 70 6f 72 74 20 38 30 20 2f 6d 61 6c 77 61 72 65 2e 74 78 74 20 2d 20 4b 45 59 3a 20 30 30 32 39 38 34 31 37 31 37 32"
     
 class Net_bytes:
 	def __init__(self, src_mac=None, dst_mac=None, the_type=None, version=None, ihl=None, type_of_service=None,
