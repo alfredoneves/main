@@ -9,8 +9,9 @@ from getpass import getpass
 # pip install selenium
 # pip install webdriver-manager
 
-# material de apoio
+# materiais de apoio
 # https://www.youtube.com/watch?v=zH15eucEGJ8&t=2s
+# https://learn.microsoft.com/pt-br/microsoftteams/platform/webhooks-and-connectors/how-to/add-incoming-webhook?tabs=newteams%2Cdotnet
 
 ID = 139428 # último ID de ticket lançado
 print("Forneça as credenciais para se autenticar no GLPI")
