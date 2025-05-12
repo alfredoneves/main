@@ -6,12 +6,11 @@ import requests
 import threading
 import pyfiglet
 import dns.resolver
+import socket
 from bs4 import BeautifulSoup
 from queue import Queue
 
-ascii_banner = pyfiglet.figlet_format("snows_recon")
-print(ascii_banner)
-
+print(pyfiglet.figlet_format("snows_recon"))
 
 def help_menu():
 	text = """This tool executes basic enumeration of dns and subdomains
@@ -19,7 +18,6 @@ def help_menu():
 	"""
 	print(text)
 	
-
 try:
 	domain = sys.argv[1]
 	wordlist = sys.argv[2]
@@ -28,10 +26,10 @@ try:
 	subdomain_takeover_list = []	# storages the subdomains to test for takeover
 	my_queue = Queue()
 	res = dns.resolver.Resolver()
+	ip_blocks_set = set()
 except:
 	help_menu()
 	sys.exit()
-	
 	
 def exec_linux(command):
 	"""
@@ -47,6 +45,15 @@ def exec_linux(command):
 	except Exception as error:
 		print(error)
 
+def trace_route(domain):
+	"""This function tests the route to check which protocols are accepted"""
+	exec_linux(f"echo Route Recon >> {domain}_route.txt")
+	exec_linux(f"echo UDP route >> {domain}_route.txt")
+	exec_linux(f"traceroute {domain} -U -w 5 -m 32 -N 12 >> {domain}_route.txt")	# UDP in port 53
+	exec_linux(f"echo ICMP route >> {domain}_route.txt")
+	exec_linux(f"sudo traceroute {domain} -I -w 5 -m 32 -N 12 >> {domain}_route.txt")	# ICMP
+	exec_linux(f"echo TCP route >> {domain}_route.txt")
+	exec_linux(f"sudo traceroute {domain} -T -w 5 -m 32 -N 12 >> {domain}_route.txt")	# TCP
 
 def crt_scraping(domain):
 	"""
@@ -69,13 +76,11 @@ def crt_scraping(domain):
 				subdomains_list.append(td.get_text())
 			cont += 1
 			
-
 def fill_queue(file_name, my_queue):
 	"""This function reads a file and insert each line inside a queue"""	
 	with open(file_name, "r") as my_file:
 		for line in my_file.readlines():
 			my_queue.put(line.strip())
-
 
 def test_subdomain(domain, sub):
 	"""
@@ -93,13 +98,11 @@ def test_subdomain(domain, sub):
 	except:
 		pass
 
-
 def attack():
 	while not my_queue.empty():
 		sub = my_queue.get()
 		test_subdomain(domain, sub)
 		query_cname(domain, sub)
-
 
 def treat_list():
 	"""
@@ -125,12 +128,10 @@ def treat_list():
 
 	exec_linux(f"rm {domain}_temp.txt")
 
-
 def organize_files(domain):
 	"""Creates a directory to storage the files generated for the domain"""
 	exec_linux(f"mkdir snows_{domain}")
 	exec_linux(f"mv {domain}* snows_{domain}")
-
 
 def query_cname(domain, sub):
 	"""This function tests for cname information in subdomains for subdomain takeover"""
@@ -144,13 +145,25 @@ def query_cname(domain, sub):
 	except:
 		pass
 
+def get_ip_block(domain):
+	"""Function to consult rdap database and get the IP ranges"""
+	global ip_blocks_set
 
+	try:
+		ip = socket.gethostbyname(domain)
+		infoip = requests.get(f"https://rdap.db.ripe.net/ip/{ip}")
+		ip_blocks_set.add(infoip.json()["handle"])
+	except:
+		pass
 
 print("Executing whois...")
 exec_linux(f"whois {domain} >> {domain}_whois.txt")
 
 print("Executing reverse whois...")
 exec_linux(f"whois $(host {domain} | grep 'has address' | cut -d ' ' -f 4) >> {domain}_reverse_whois.txt")
+
+print("Tracing the route...")
+trace_route(domain)
 
 print("Executing dns enumeration...")
 exec_linux(f"dnsenum {domain} >> {domain}_dnsenum.txt")
@@ -177,4 +190,15 @@ for thread in thread_list:
 	thread.join()
 
 treat_list()
+
+# Collect IP blocks and write to file, later the function organize_files will move the file to the directory
+with open(f"{domain}_subdomains.txt", "r") as my_file:
+	for subdomain in my_file.readlines():
+		get_ip_block(subdomain.strip())
+
+with open(f"{domain}_ip_blocks.txt", "w") as my_file:
+    for line in ip_blocks_set:
+        my_file.write(f"{str(line)}\n")
+
 organize_files(domain)
+print(f"Script finished, files saved to snows_{domain}")
