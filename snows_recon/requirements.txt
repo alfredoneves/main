@@ -16,3 +16,4 @@ threading
 pyfiglet
 dns.resolver
 bs4
+socket
