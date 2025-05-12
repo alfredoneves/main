@@ -13,6 +13,8 @@ subdomains.txt
 	- subfinder
 	- subdomain brute force
 	- subdomain takeover
+	- crt.sh web scraping
+4) IP ranges enumeration
 
 ## snows_recon_web is a tool focused in the web enumeration phase starting with a list of subdomains
 1) gospider;
