@@ -24,3 +24,4 @@ except:
 # gobuster
 # nikto
 # xsssniper
+# colect urls based on extension with lynx -dump "http://google.com/search?num=500&q=site:SITE+ext:js | cut -d "=" -f 2 | grep ".js" | egrep -v "site|google"
